@@ -42,23 +42,58 @@ s.n. dasgupta
 ### Display the content of the files
 cat < file1
 ## OUTPUT
-
+```(base) sec@sec-ThinkPad-E15-Gen-4:~$ cat<file1
+chanchal singhvi
+c.k. shukla
+s.n. dasgupta
+sumit chakrobarty
+```
 
 
 cat < file2
 ## OUTPUT
+```(base) sec@sec-ThinkPad-E15-Gen-4:~$ cat<file2
+anil aggarwal
+barun sengupta
+c.k. shukla
+lalit chowdury
+s.n. dasgupta
+```
 
 
 # Comparing Files
 cmp file1 file2
 ## OUTPUT
+```(base) sec@sec-ThinkPad-E15-Gen-4:~$ cmp file1 file2
+file1 file2 differ: byte 1, line 1
+```
  
 comm file1 file2
  ## OUTPUT
+ ```(base) sec@sec-ThinkPad-E15-Gen-4:~$ comm file1 file2
+	anil aggarwal
+	barun sengupta
+chanchal singhvi
+		c.k. shukla
+	lalit chowdury
+		s.n. dasgupta
+sumit chakrobarty
+```
 
  
 diff file1 file2
 ## OUTPUT
+```(base) sec@sec-ThinkPad-E15-Gen-4:~$ diff file1 file2
+1c1,2
+< chanchal singhvi
+---
+> anil aggarwal
+> barun sengupta
+2a4
+> lalit chowdury
+4d5
+< sumit chakrobarty
+```
 
 
 #Filters
@@ -82,17 +117,25 @@ cat > file22
 
 cut -c1-3 file11
 ## OUTPUT
+```(base) sec@sec-ThinkPad-E15-Gen-4:~$ cut -c1-3 file11
+Hel
+Thi
+```
 
 
 
 
 cut -d "|" -f 1 file22
 ## OUTPUT
+```cut -d "|" -f 1 file22
+```
 
 
 
 cut -d "|" -f 2 file22
 ## OUTPUT
+```cut -d "|" -f 2 file22
+```
 
 
 cat < newfile 
@@ -101,46 +144,74 @@ Hello world
 hello world
 ^d
 ````
-cat > newfile 
+cat > newfile
 Hello world
 hello world
  
 grep Hello newfile 
 ## OUTPUT
+```(base) sec@sec-ThinkPad-E15-Gen-4:~$ 
+grep Hello newfile
+Hello world
+```
 
 
 
 grep hello newfile 
 ## OUTPUT
-
+```(base) sec@sec-ThinkPad-E15-Gen-4:~$ grep hello newfile 
+hello world
+```
 
 
 
 grep -v hello newfile 
 ## OUTPUT
+```(base) sec@sec-ThinkPad-E15-Gen-4:~$ grep -v hello newfile 
+Hello world
+```
 
 
 
 cat newfile | grep -i "hello"
 ## OUTPUT
+```(base) sec@sec-ThinkPad-E15-Gen-4:~$ cat newfile | grep -i "hello"
+Hello world
+hello world
+```
 
 
 
 
 cat newfile | grep -i -c "hello"
 ## OUTPUT
+```(base) sec@sec-ThinkPad-E15-Gen-4:~$ 
+cat newfile | grep -i -c "hello"
+2
+```
 
 
 
 
 grep -R ubuntu /etc
 ## OUTPUT
+```(base) sec@sec-ThinkPad-E15-Gen-4:~$ 
+grep -R ubuntu /etc
+/etc/apparmor.d/abstractions/ubuntu-email:# Users of this abstraction need to include the ubuntu-helpers abstraction
+/etc/apparmor.d/abstractions/ubuntu-email:#   include <abstractions/ubuntu-helpers>
+/etc/apparmor.d/abstractions/ubuntu-email:  include if exists <abstractions/ubuntu-email.d>
+/etc/apparmor.d/abstractions/ubuntu-feed-readers:# Users of this abstraction need to include the ubuntu-helpers abstraction
+```
 
 
 
 grep -w -n world newfile   
 ## OUTPUT
-
+```(base) sec@sec-ThinkPad-E15-Gen-4:~$ 
+grep -w -n world newfile 
+1:Hello world
+2:hello world
+```
 
 cat < newfile 
 ```
