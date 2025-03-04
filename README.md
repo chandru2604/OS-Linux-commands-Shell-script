@@ -1040,7 +1040,7 @@ chrcnt+=len
 END {
 print "total characters",chrcnt 
 print "Number of Lines are",NR
-print "No of Words count:",wordcount
+print "No of Words count:",wordcount 
 }
  ```
 cat>data.dat
